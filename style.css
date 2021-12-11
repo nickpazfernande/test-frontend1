@@ -294,6 +294,13 @@ article {
 }
 
 @media (max-width: 850px) {
+  /* MENU */
+  .li-facebook a {
+    display: none;
+  }
+
+  /* Slider */
+
   article {
     grid-template-columns: 1fr 1fr;
     justify-items: center;
@@ -301,6 +308,55 @@ article {
 }
 
 @media (max-width: 550px) {
+  /* Slider */
+
+  .div-slider {
+    align-items: flex-start;
+    justify-items: center;
+  }
+
+  .mancha {
+    width: 400px;
+  }
+  .title-product {
+    font-size: var(--lg) !important;
+  }
+  .title-number {
+    font-size: var(--xlg) !important;
+    padding-bottom: 0px;
+    margin-bottom: 12px;
+  }
+
+  .btn-primary {
+    width: 140px;
+    height: 50px;
+    font-size: var(--sm);
+    margin-top: 48px;
+  }
+
+  /* Formulario */
+  .section-form {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .form-container {
+    grid-template-columns: 1fr !important;
+    width: 100%;
+  }
+
+  .form-container button {
+    grid-column: 1 !important;
+  }
+
+  .form-container div:nth-child(3) {
+    grid-column: 1 !important;
+    width: 90%;
+  }
+
+  .div-container-form {
+    width: 90%;
+  }
+
   article {
     grid-template-columns: 1fr;
     justify-items: center;
