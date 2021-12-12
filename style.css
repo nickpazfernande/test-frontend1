@@ -54,7 +54,11 @@ body {
   bottom: 0;
   color: #696969;
 }
-
+.prueba {
+  padding-left: 50px;
+  padding-right: 50px;
+  background-color: #d2d2d2;
+}
 .a-facebook {
   top: 0%;
   bottom: 0%;
@@ -76,9 +80,9 @@ nav ul li {
   padding-top: 32px;
   padding-bottom: 32px;
   background-color: #d2d2d2;
-  height: 100% !important;
+  height: 600px;
   display: grid !important;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: repeat(4, 25%);
   width: 100%;
   align-items: center;
   justify-items: center;
@@ -88,14 +92,14 @@ nav ul li {
   text-align: left;
   font-size: var(--lg);
   font-weight: inherit;
-  color: #696969;
+  color: #a4a4a4;
   padding-bottom: 8px;
 }
 
 .title-number {
   font-size: var(--xxlg) !important;
   font-weight: bold !important;
-  color: #696969;
+  color: #a4a4a4;
   margin-top: 0;
   margin-bottom: 48px;
   text-align: left;
@@ -106,14 +110,6 @@ nav ul li {
 }
 .mancha {
   width: 800px;
-}
-
-.text-mancha {
-  position: absolute;
-  top: 40%;
-  z-index: 10;
-  color: white;
-  font-size: var(--xlg);
 }
 
 .btn-slider {
@@ -293,9 +289,19 @@ article {
 
 /********** Estilos para pantallas de maximo 1300px **********/
 @media (max-width: 1300px) {
+  .div-slider {
+    height: 100%;
+  }
+  .div-slider {
+    grid-template-columns: 50% 50%;
+  }
+
   article {
     grid-template-columns: 1fr 1fr 1fr;
     justify-items: center;
+  }
+  .div-centrar {
+    display: none;
   }
 
   .card2 {
@@ -311,6 +317,29 @@ article {
   }
 
   /* Slider */
+  .prueba {
+    padding-left: 0;
+    padding-right: 0;
+    background-color: #d2d2d2;
+  }
+  .mancha {
+    width: 600px;
+  }
+  .title-product {
+    font-size: var(--lg) !important;
+  }
+  .title-number {
+    font-size: var(--xlg) !important;
+    padding-bottom: 0px;
+    margin-bottom: 12px;
+  }
+
+  .btn-primary {
+    width: 180px;
+    height: 60px;
+    font-size: var(--sm);
+    margin-top: 72px;
+  }
 
   article {
     grid-template-columns: 1fr 1fr;
@@ -331,11 +360,13 @@ article {
   }
   .title-product {
     font-size: var(--lg) !important;
+    position: relative;
   }
   .title-number {
     font-size: var(--xlg) !important;
     padding-bottom: 0px;
     margin-bottom: 12px;
+    position: relative;
   }
 
   .btn-primary {
