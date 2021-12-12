@@ -1,6 +1,7 @@
 /*************************************************************************************************************************/
 /********************** VALIDACION DADA PARA SER UTILIZADA ***************************************************************/
 /*************************************************************************************************************************/
+const divConst = document.getElementsByClassName("div-container-form");
 
 function validarCedula(ci) {
   //Inicializo los coefcientes en el orden correcto
@@ -74,4 +75,79 @@ document.getElementById("email").addEventListener("keyup", function (event) {
   } else {
     label.style.display = "none";
   }
+});
+
+//Funcion para volver el color original al input.
+function retornColorInput(id) {
+  let div3 = document.getElementById(id);
+  div3.style.border = "1px solid var(--secondary)";
+}
+
+//Funcion de validacion de formulario.
+function validarForm() {
+  let nombre = document.getElementById("name").value;
+  let apellido = document.getElementById("apellido").value;
+  let email = document.getElementById("email").value;
+  let ci = document.getElementById("ci").value;
+  let span = document.getElementById("span-mensajes");
+  let total = 0;
+
+  if (nombre == "") {
+    let div = document.getElementById("div-name");
+    div.style.border = "1px solid red";
+    span.innerHTML = "Ha dejado campos vacios.";
+  } else if (nombre.length < 2) {
+    let div = document.getElementById("div-name");
+    div.style.border = "1px solid red";
+    span.innerHTML = "Su nombre debe tener minimo 2 letras.";
+  } else {
+    total++;
+  }
+
+  if (apellido == "") {
+    let div = document.getElementById("div-apellido");
+    div.style.border = "1px solid red";
+  } else if (apellido.length < 2) {
+    let div = document.getElementById("div-apellido");
+    div.style.border = "1px solid red";
+    span.innerHTML = "Su apellido debe tener minimo 2 letras.";
+  } else {
+    total++;
+  }
+
+  if (email == "") {
+    let div = document.getElementById("div-email");
+    div.style.border = "1px solid red";
+    span.innerHTML = "Ha dejado campos vacios.";
+  } else {
+    total++;
+  }
+
+  if (ci == "") {
+    let div = document.getElementById("div-ci");
+    div.style.border = "1px solid red";
+    span.innerHTML = "Ha dejado campos vacios.";
+  } else if (!validarCedula(ci)) {
+    let div = document.getElementById("div-ci");
+    div.style.border = "1px solid red";
+    span.innerHTML = "La C.I. ingresada no es correcta.";
+  } else {
+    total++;
+  }
+
+  if (total == 4) {
+    span.style.color = "green";
+    span.innerHTML = "Se ha enviado correctamente.";
+
+    window.setTimeout(reload(), 10000);
+  }
+}
+
+function reload() {
+  location.reload();
+}
+
+//Cancelo evento default de boton submit.
+$("#form").on("submit", function (evt) {
+  evt.preventDefault();
 });

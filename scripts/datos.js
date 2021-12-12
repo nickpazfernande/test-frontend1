@@ -5,6 +5,8 @@ let dptosLocs = {
   Salto: ["Salto", "Daymán", "Arapey"],
 };
 
+console.log(dptosLocs.Artigas.length);
+
 function countProperties(obj) {
   var count = 0;
 
@@ -15,21 +17,43 @@ function countProperties(obj) {
   return count;
 }
 
-//**********Evento que se ejecuta al cargar el DOM ********/
-window.addEventListener("DOMContentLoaded", (event) => {
-  //Funcion para cargar los valores de departamentos.
-});
-
 function cargarLocalidades() {
   let select = document.getElementById("dptosLocs").value;
-  let lenght = countProperties(dptosLocs.select);
+  if (select == "Artigas") {
+    document.getElementById("locaciones").options.length = 0;
+    document.getElementById("locaciones").options[0] = new Option("Holaaaaa");
+    for (let i = 0; i < dptosLocs.Artigas.length; i++) {
+      document.getElementById("locaciones").options[i] = new Option(
+        dptosLocs.Artigas[i]
+      );
+    }
+  }
 
-  
-  alert(if (select == dptosLocs[1]){return true} else {return false});
+  if (select == "Canelones") {
+    document.getElementById("locaciones").options.length = 0;
+    document.getElementById("locaciones").options[0] = new Option("Holaaaaa");
+    for (let i = 0; i < dptosLocs.Canelones.length; i++) {
+      document.getElementById("locaciones").options[i] = new Option(
+        dptosLocs.Canelones[i]
+      );
+    }
+  }
 
-  //   for (let i=0; i<select.length) {
-  //     let option = document.createElement("option");
-  //     option.text = dptosLocs[value];
-  //     select.add(option);
-  //   }
+  if (select == "Montevideo") {
+    document.getElementById("locaciones").options.length = 0;
+    for (let i = 0; i < dptosLocs.Montevideo.length; i++) {
+      document.getElementById("locaciones").options[i] = new Option(
+        dptosLocs.Montevideo[i]
+      );
+    }
+  }
+
+  if (select == "Salto") {
+    document.getElementById("locaciones").options.length = 0;
+    for (let i = 0; i < dptosLocs.Salto.length; i++) {
+      document.getElementById("locaciones").options[i] = new Option(
+        dptosLocs.Salto[i]
+      );
+    }
+  }
 }

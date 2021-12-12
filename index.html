@@ -210,9 +210,13 @@
       <hr />
       <div class="section-form">
         <div></div>
-        <form action="" class="form-container">
+        <form action="" class="form-container" id="form">
           <!-- Input name -->
-          <div class="div-container-form">
+          <div
+            class="div-container-form"
+            id="div-name"
+            onclick="retornColorInput(id)"
+          >
             <label class="lbl-form-name" id="lbl-form-name">Nombre</label>
             <input
               autocomplete="off"
@@ -224,7 +228,11 @@
           </div>
 
           <!-- input apellido -->
-          <div class="div-container-form">
+          <div
+            class="div-container-form"
+            onclick="retornColorInput(id)"
+            id="div-apellido"
+          >
             <label class="lbl-form-apellido" id="lbl-form-apellido"
               >Apellido</label
             >
@@ -234,12 +242,15 @@
               id="apellido"
               class="input-form"
               placeholder="Apellido"
-              required
             />
           </div>
 
           <!-- Input Email -->
-          <div class="container-form-email">
+          <div
+            class="container-form-email"
+            id="div-email"
+            onclick="retornColorInput(id)"
+          >
             <label class="lbl-form-email" id="lbl-form-email">Email</label>
             <input
               autocomplete="off"
@@ -247,12 +258,15 @@
               id="email"
               class="input-form"
               placeholder="Email"
-              required
             />
           </div>
 
           <!-- Input Departamento -->
-          <div class="div-container-form">
+          <div
+            class="div-container-form"
+            id="div-departamento"
+            onclick="retornColorInput(id)"
+          >
             <select
               name=""
               class="input-form"
@@ -268,14 +282,22 @@
           </div>
 
           <!-- Input localidad -->
-          <div class="div-container-form">
-            <select name="" class="input-form" id="">
+          <div
+            class="div-container-form"
+            id="div-localidad"
+            onclick="retornColorInput(id)"
+          >
+            <select name="" class="input-form" id="locaciones">
               <option value="value0" disabled selected>Localidad</option>
             </select>
           </div>
 
           <!-- Input CI -->
-          <div class="div-container-form">
+          <div
+            class="div-container-form"
+            id="div-ci"
+            onclick="retornColorInput(id)"
+          >
             <label class="lbl-form-ci" id="lbl-form-ci">CI</label>
             <input
               autocomplete="off"
@@ -283,7 +305,6 @@
               id="ci"
               class="input-form"
               placeholder="C.I."
-              required
             />
           </div>
 
@@ -293,8 +314,8 @@
               Acepto las bases y condiciones.</label
             >
           </div>
-
-          <button type="submit" class="btn-send">ENVIAR</button>
+          <span class="span-mensajes" id="span-mensajes"></span>
+          <button onclick="validarForm()" class="btn-send">ENVIAR</button>
         </form>
         <div></div>
       </div>
