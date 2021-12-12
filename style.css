@@ -1,3 +1,4 @@
+/* Variables */
 :root {
   --white: #ffffff;
   --black: #000000;
@@ -18,7 +19,7 @@ body {
   line-height: 1.6em;
 }
 
-/* Stilos de menu superior. */
+/********** Stilos de menu superior. **********/
 
 .nav {
   background-color: black;
@@ -69,7 +70,7 @@ nav ul li {
   font-size: var(--md);
 }
 
-/* Stilos de slider */
+/********** Stilos de slider. **********/
 .div-slider {
   text-align: center;
   padding-top: 32px;
@@ -126,6 +127,8 @@ nav ul li {
   z-index: 100000000;
 }
 .btn-primary {
+  display: inline-block;
+  position: relative;
   background-color: var(--primary);
   font-size: var(--md);
   letter-spacing: 0.2em;
@@ -141,7 +144,7 @@ nav ul li {
   cursor: pointer;
 }
 
-/* Estilos de articulos.  */
+/********** Estilos de card de articulos **********/
 .title-articles {
   font-size: var(--lg);
   font-weight: 400;
@@ -191,8 +194,7 @@ article {
   margin-top: 33px;
 }
 
-/* FORMULARIO */
-
+/********** Estilos de formulario **********/
 .section-form {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -288,9 +290,11 @@ article {
   background-color: navy;
   cursor: pointer;
 }
+
+/********** Estilos para pantallas de maximo 1300px **********/
 @media (max-width: 1300px) {
   article {
-    grid-template-columns: 25% 50% 25%;
+    grid-template-columns: 1fr 1fr 1fr;
     justify-items: center;
   }
 
@@ -299,7 +303,8 @@ article {
   }
 }
 
-@media (max-width: 850px) {
+/********** Estilos para pantallas de maximo 850px  **********/
+@media (max-width: 1000px) {
   /* MENU */
   .li-facebook a {
     display: none;
@@ -313,9 +318,9 @@ article {
   }
 }
 
+/********** Estilos para pantallas de maximo 550px **********/
 @media (max-width: 550px) {
-  /* Slider */
-
+  /********** Slider **********/
   .div-slider {
     align-items: flex-start;
     justify-items: center;
@@ -337,10 +342,15 @@ article {
     width: 140px;
     height: 50px;
     font-size: var(--sm);
-    margin-top: 48px;
+    margin-top: 72px;
   }
 
-  /* Formulario */
+  /********** Articulos **********/
+  article {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  /********** Formulario **********/
   .section-form {
     display: grid;
     grid-template-columns: 1fr;
@@ -365,10 +375,5 @@ article {
 
   .span-mensajes {
     grid-column: 1;
-  }
-
-  article {
-    grid-template-columns: 1fr;
-    justify-items: center;
   }
 }
