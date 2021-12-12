@@ -3,6 +3,7 @@
 /*************************************************************************************************************************/
 const divConst = document.getElementsByClassName("div-container-form");
 
+//Funcion para validaion de cedula.
 function validarCedula(ci) {
   //Inicializo los coefcientes en el orden correcto
   var arrCoefs = new Array(2, 9, 8, 7, 6, 3, 4, 1);
@@ -85,25 +86,40 @@ function retornColorInput(id) {
 
 //Funcion de validacion de formulario.
 function validarForm() {
+  //Guardo los valores de los mismos
   let nombre = document.getElementById("name").value;
   let apellido = document.getElementById("apellido").value;
   let email = document.getElementById("email").value;
   let ci = document.getElementById("ci").value;
+  let departamento = document.getElementById("dptosLocs").value;
+
+  //Span donde se notificaran errores.
   let span = document.getElementById("span-mensajes");
+  //Variables para verificacion si estan todos los campos correctos.
   let total = 0;
 
+  //Si nombre esta vacio, pinto el div correspondiente.
+  //De color rojo, y notifico del error.
   if (nombre == "") {
     let div = document.getElementById("div-name");
     div.style.border = "1px solid red";
     span.innerHTML = "Ha dejado campos vacios.";
+
+    //Si nombre tiene menos de 2 caracteres, , pinto el div correspondiente.
+    //De color rojo y notifico el error.
   } else if (nombre.length < 2) {
     let div = document.getElementById("div-name");
     div.style.border = "1px solid red";
     span.innerHTML = "Su nombre debe tener minimo 2 letras.";
+
+    //Si esta todo bien le sumo 1 a la variable total.
+    //Indicando que este campo esta correcto.
   } else {
     total++;
   }
 
+  //Si apellido esta vacio, pinto el div correspondiente.
+  //De color rojo, y notifico del error.
   if (apellido == "") {
     let div = document.getElementById("div-apellido");
     div.style.border = "1px solid red";
@@ -111,18 +127,28 @@ function validarForm() {
     let div = document.getElementById("div-apellido");
     div.style.border = "1px solid red";
     span.innerHTML = "Su apellido debe tener minimo 2 letras.";
+
+    //Si esta todo bien le sumo 1 a la variable total.
+    //Indicando que este campo esta correcto.
   } else {
     total++;
   }
 
+  //Si email esta vacio, pinto el div correspondiente.
+  //De color rojo, y notifico del error.
   if (email == "") {
     let div = document.getElementById("div-email");
     div.style.border = "1px solid red";
     span.innerHTML = "Ha dejado campos vacios.";
+
+    //Si esta todo bien le sumo 1 a la variable total.
+    //Indicando que este campo esta correcto.
   } else {
     total++;
   }
 
+  //Si CI esta vacio, pinto el div correspondiente.
+  //De color rojo, y notifico del error.
   if (ci == "") {
     let div = document.getElementById("div-ci");
     div.style.border = "1px solid red";
@@ -131,18 +157,35 @@ function validarForm() {
     let div = document.getElementById("div-ci");
     div.style.border = "1px solid red";
     span.innerHTML = "La C.I. ingresada no es correcta.";
+
+    //Si esta todo bien le sumo 1 a la variable total.
+    //Indicando que este campo esta correcto.
   } else {
     total++;
   }
 
-  if (total == 4) {
+  if (departamento == "value0") {
+    let div = document.getElementById("div-localidad");
+    let div1 = document.getElementById("div-departamento");
+    div.style.border = "1px solid red";
+    div1.style.border = "1px solid red";
+  } else {
+    total++;
+  }
+
+  //Si total es igual a 5 quiere decir que todos los campos fueron
+  //ingresados correctamente.
+  if (total == 5) {
+    //Muestro una notificacion de color verde
     span.style.color = "green";
     span.innerHTML = "Se ha enviado correctamente.";
 
+    //Siguiente a eso recargo la pagina
     window.setTimeout(reload(), 10000);
   }
 }
 
+//Funcion para recargar pagina.
 function reload() {
   location.reload();
 }
