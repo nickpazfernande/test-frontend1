@@ -363,6 +363,10 @@ article {
     width: 90%;
   }
 
+  .span-mensajes {
+    grid-column: 1;
+  }
+
   article {
     grid-template-columns: 1fr;
     justify-items: center;
